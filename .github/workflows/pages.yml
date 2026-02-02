@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Remove placeholder cardbacks
         if: ${{ github.repository == 'FABKIT/FABKIT' }}
@@ -37,7 +37,7 @@ jobs:
 
       - name: Pull Cardbacks
         if: ${{ github.repository == 'FABKIT/FABKIT' }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: FABKIT/cardbacks
           ssh-key: ${{ secrets.CARDBACK_KEY }}
