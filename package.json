@@ -31,7 +31,7 @@
 		"canvg": "^4.0.3",
 		"i18next": "^25.8.0",
 		"i18next-browser-languagedetector": "^8.2.0",
-		"lucide-react": "^0.563.0",
+		"lucide-react": "^0.577.0",
 		"next-themes": "^0.4.6",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
@@ -42,7 +42,7 @@
 		"zustand": "^5.0.10"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.3.12",
+		"@biomejs/biome": "2.4.8",
 		"@tailwindcss/vite": "^4.1.18",
 		"@tanstack/router-plugin": "^1.157.10",
 		"@types/node": "^24.10.1",
