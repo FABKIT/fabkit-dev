@@ -28,7 +28,7 @@
  * restore the originals afterwards so the live preview is unaffected.
  */
 
-import { type BlobType, snapdom } from "@zumer/snapdom";
+import {type BlobType, preCache, snapdom} from "@zumer/snapdom";
 
 function blobToDataUrl(blob: Blob): Promise<string> {
 	return new Promise((resolve, reject) => {
@@ -85,7 +85,18 @@ export async function convertToImage(
 ): Promise<Blob> {
 	const restoreHrefs = await embedSVGImageHrefs(svg);
 	try {
+		console.info('Warming cache');
+		await preCache(
+			svg,
+			{
+				embedFonts: true
+			}
+		);
+
+		console.info('Capturing...');
 		const capture = await snapdom(svg, { scale, embedFonts: true });
+
+		console.info('Rendering');
 		return await capture.toBlob({ type });
 	} finally {
 		restoreHrefs();
